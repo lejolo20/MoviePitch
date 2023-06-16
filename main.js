@@ -1,12 +1,11 @@
 import "./style.css";
-import { process } from "./env";
 import { Configuration, OpenAIApi } from "openai";
 
 const setupInputContainer = document.getElementById("setup-input-container");
 const movieBossText = document.getElementById("movie-boss-text");
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
@@ -15,7 +14,7 @@ document.getElementById("send-btn").addEventListener("click", () => {
   const setupTextarea = document.getElementById("setup-textarea");
   if (setupTextarea.value) {
     const userInput = setupTextarea.value;
-    setupInputContainer.innerHTML = `<img src="images/loading.svg" class="loading" id="loading">`;
+    setupInputContainer.innerHTML = `<img src="/loading.svg" class="loading" id="loading">`;
     movieBossText.innerText = `Ok, just wait a second while my digital brain digests that...`;
 
     fetchBotReply(userInput);
