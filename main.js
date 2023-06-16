@@ -5,6 +5,7 @@ const setupInputContainer = document.getElementById("setup-input-container");
 const movieBossText = document.getElementById("movie-boss-text");
 
 const configuration = new Configuration({
+  organization: "org-TQpO2MbCHqb0iZP0YRsVkFZw",
   apiKey: import.meta.env.VITE_OPENAI_API_KEY,
 });
 
